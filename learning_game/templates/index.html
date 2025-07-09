@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Adventure!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Learning Adventure!</h1>
+        <div class="character-select">
+            <h2>Choose Your Character:</h2>
+            <div class="character-buttons">
+                <button onclick="selectCharacter('Amelia Storm')" class="character-btn amelia">
+                    Amelia Storm
+                </button>
+                <button onclick="selectCharacter('Selena Rogue')" class="character-btn selena">
+                    Selena Rogue
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function selectCharacter(character) {
+            localStorage.setItem('character', character);
+            window.location.href = '/game';
+        }
+    </script>
+</body>
+</html> 
