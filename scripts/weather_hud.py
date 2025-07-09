@@ -1,14 +1,19 @@
 import sys
 import requests
 import random
+import os
 from PyQt5.QtWidgets import QApplication, QLabel, QWidget, QVBoxLayout, QPushButton
 from PyQt5.QtCore import Qt, QTimer, QPoint
 from PyQt5.QtGui import QFont
 from wallpapers import set_wallpaper_for_condition
 
-# Replace with your actual OpenWeatherMap API key
-API_KEY = "0188989f8ca220dec517152cb8dbdbcd"
+# Get API key from environment variable
+API_KEY = os.getenv('OPENWEATHER_API_KEY')
 CITY = "Camden, South Carolina"
+
+if not API_KEY:
+    print("Error: OPENWEATHER_API_KEY environment variable not set")
+    sys.exit(1)
 
 class WeatherHUD(QWidget):
     def __init__(self):
